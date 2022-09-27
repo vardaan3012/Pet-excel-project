@@ -1,13 +1,12 @@
 const express = require("express");
 const excelToJson = require('convert-excel-to-json');
-const file_upload = require("express-fileupload");
 const fs = require("fs");
 try {
     fs.mkdirSync(__dirname + "/excel_uploads");
 }
 catch (error) { }
 const app = express();
-app.use(file_upload());
+
 const Pet = require('../models/pet');
 
 module.exports.CreatePetsDataInDatabase = function (req, res) {
